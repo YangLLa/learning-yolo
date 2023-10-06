@@ -1,0 +1,21 @@
+# Hyperparameters for training
+
+giou: 3.54  # giou loss gain  3.54
+box: 3.54  # 3.54
+cls: 37.4  # cls loss gain 37.4
+cls_pw: 1.0  # cls BCELoss positive_weight
+obj: 64.3  # obj loss gain (*=img_size/320 if img_size != 320) 64.3
+obj_pw: 1.0  # obj BCELoss positive_weight
+iou_t: 0.20  # iou training threshold
+lr0: 0.001  # initial learning rate (SGD=5E-3 Adam=5E-4)  0.001
+lrf: 0.01  # final OneCycleLR learning rate (lr0 * lrf)   余弦退火超参数 0.01
+momentum: 0.937  # SGD momentum  学习率动量 对于SGD一般将参数设为0.5、0.9，或者0.99分别表示最大速度2倍、10倍、100倍于SGD算法
+weight_decay: 0.0005  # optimizer weight decay  权重衰减项  防止过拟合的参数，若weight decay很大，则复杂的模型损失函数的值也就大
+fl_gamma: 0  # focal loss gamma (efficientDet default is gamma=1.5) 0
+hsv_h: 0.0138  # image HSV-Hue augmentation (fraction)  色调  预处理图像会用到的超参数
+hsv_s: 0.678  # image HSV-Saturation augmentation (fraction)  饱和度
+hsv_v: 0.36  # image HSV-Value augmentation (fraction)  明度
+degrees: 0.  # image rotation (+/- deg)  旋转角度
+translate: 0.  # image translation (+/- fraction)  水平和垂直平移  0.1
+scale: 0.  # image scale (+/- gain)  缩放  0.5
+shear: 0.  # image shear (+/- deg)  剪切

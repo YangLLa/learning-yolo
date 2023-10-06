@@ -1,0 +1,33 @@
+改cfg的方式改网络结构  有一个可视化工具
+
+https://lutzroeder.github.io/netron/
+
+
+shortcut和concat的区别
+shortcut是特征图中的每个像素点进行对应位置的相加操作。通俗讲就是add操作
+
+route是进行的拼接操作，即将一个特征图和另一个特征图在指定的维度上进行拼接操作，组成了一张尺度更大的特征图。
+当属性只有一个值时，他会输出由该值索引的网络层的特征图。
+当属性是两个值时，就是将两个层沿着深度进行维度连接，这就要求feature map大小一致
+
+[upsample] 上采样是通过线性插值实现的
+[maxpool] 下采样的一种方式，也可以通过卷积实现 # 在非主干中用
+
+[convolutional]  # Downsample 在主干中的方式 3*3/2
+batch_normalize=1
+filters=128  
+size=3
+stride=2
+pad=1
+activation=leaky
+
+
+spp系列
+sppf  3*sppf  2*sppf  1*sppf
+BiFPN  shortcut  rount 
+deconvolutional替代upsample   
+convolutional替代maxpooling 
+upsample+convolutional替代upsample 
+
+损失函数  iou  GIOU CIOU DIOU  SIOU 
+
